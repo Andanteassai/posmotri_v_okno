@@ -9,9 +9,12 @@ html {
 }
 
 .page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
-  margin: auto;
+  margin: 0 auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -42,9 +45,7 @@ ol {
   justify-content: flex-start;
   align-items: flex-end;
   column-gap: 30px;
-  width: 1140px;
-  height: 540px;
-  margin: 63px 0 0 30px;
+  max-width: 1140px;
 }
 
 .result {
@@ -66,9 +67,8 @@ ol {
 }
 
 .search-form {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
 }
 
 .search-form__fieldset {
@@ -80,13 +80,9 @@ ol {
   font-family: inherit;
   font-size: inherit;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 1.2;
   text-align: left;
   padding-bottom: 4px;
-}
-
-.search-form__fieldset:not(:first-child) {
-  padding: 0 3px 4px 20px;
 }
 
 .search-form__label {
@@ -101,14 +97,19 @@ ol {
 }
 
 input[type="checkbox"] + .search-form__pseudo-checkbox {
-  display: inline-block;
   background-color: transparent;
   border: 1px solid #fff;
   height: 19px;
   width: 19px;
 }
 
-input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
+input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
   border: 1px solid #000;
   outline: 1px solid #fff;
@@ -135,26 +136,22 @@ div .search-form__label:hover {
 .search-form__textfield {
   appearance: none;
   background-color: transparent;
-  width: 100%;
+  min-width: 224px;
   height: min-content;
   color: #fff;
   opacity: 0.7;
   font-family: inherit;
   font-size: inherit;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 1.1;
   text-align: left;
-  border: none;
-  padding: 3px 56px 3px 0px;
-}
-
-.search-form__textfield::placeholder {
-  padding: 2px 56px 2px 0px;
-  width: max-content;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  caret-color: #fff;
+  border-left: none;
+  border-right: none;
+  padding: 3px 0 2px 0;
 }
+
 .search-form__textfield:focus {
   outline: none;
 }
@@ -162,11 +159,7 @@ div .search-form__label:hover {
 .search-form__checkbox-list {
   display: flex;
   justify-content: space-evenly;
-}
-
-.search-form__pseudo-checkbox {
-  background-color: #fff;
-  position: relative;
+  padding: 1px 24px 0 0;
 }
 
 .button {
@@ -176,7 +169,7 @@ div .search-form__label:hover {
   font-family: inherit;
   font-size: inherit;
   font-weight: 700;
-  line-height: 22px;
+  line-height: 1.2;
   text-align: center;
   background-color: transparent;
   text-decoration: none;
@@ -184,7 +177,6 @@ div .search-form__label:hover {
 
 button:focus {
   outline: none;
-
 }
 
 button:focus-visible {
@@ -209,17 +201,16 @@ button:hover {
 .content__details {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
+  max-height: 540px;
   padding-top: 9px;
 }
 
 .title {
-  padding-bottom: 22px;
+  padding-bottom: 19px;
   font-family: 'Oswald', sans-serif;
   font-size: 75px;
   font-weight: 700;
-  line-height: 94%;
+  line-height: 0.94;
   text-align: left;
   text-transform: uppercase;
 }
@@ -235,7 +226,7 @@ button:hover {
 }
 
 .content__list-item:not(:last-child) {
-  padding-bottom: 28px;
+  padding-bottom: 26px;
 }
 
 .content__card-link {
@@ -262,13 +253,11 @@ button:hover {
 }
 
 .content__video-card {
-  display: grid;
-  grid-template-columns: 2fr auto;
-  column-gap: 2px;
+  display: flex;
 }
 
 .content__video-card-description-container {
-  line-height: 35px;
+  line-height: 1.2;
 }
 
 .content__video-card-title {
@@ -277,7 +266,7 @@ button:hover {
   font-family: 'Oswald', sans-serif;
   font-size: 30px;
   font-weight: 700;
-  line-height: 120%;
+  line-height: 1.2;
   text-align: left;
   text-transform: uppercase;
 }
@@ -285,13 +274,15 @@ button:hover {
 .content__video-card-description {
   color: #fff;
   font-weight: 400;
-  line-height: 16.2px;
+  line-height: 1.3;
   text-align: left;
 }
 
 .content__video-card-thumbnail {
-  min-width: 193px;
-  max-height: 103px;
+  max-height: 108px;
+  object-fit: contain;
+  object-position: right;
+  flex-grow: 1;
 }
 
 .more-button {
