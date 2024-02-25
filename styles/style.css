@@ -6,6 +6,7 @@
 
 html {
   block-size: 100%;
+  scroll-padding-top: 100px
 }
 
 .page {
@@ -199,8 +200,8 @@ button:hover {
 }
 
 .content__details {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
   max-height: 540px;
   padding-top: 9px;
 }
@@ -223,6 +224,7 @@ button:hover {
   overflow: hidden auto;
   position: relative;
   padding-bottom: 2px;
+  min-width: 413px;
 }
 
 .content__list-item:not(:last-child) {
@@ -258,6 +260,7 @@ button:hover {
 
 .content__video-card-description-container {
   line-height: 1.2;
+  flex-grow: 1;
 }
 
 .content__video-card-title {
@@ -280,9 +283,9 @@ button:hover {
 
 .content__video-card-thumbnail {
   max-height: 108px;
-  object-fit: contain;
+  object-fit: scale-down;
   object-position: right;
-  flex-grow: 1;
+  flex-grow: 2;
 }
 
 .more-button {
