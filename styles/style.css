@@ -224,6 +224,7 @@ button:hover {
   overflow: hidden auto;
   position: relative;
   padding-bottom: 2px;
+  min-width: 399px;
 }
 
 .content__list-item:not(:last-child) {
