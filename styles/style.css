@@ -224,7 +224,6 @@ button:hover {
   overflow: hidden auto;
   position: relative;
   padding-bottom: 2px;
-  min-width: 413px;
 }
 
 .content__list-item:not(:last-child) {
@@ -256,6 +255,7 @@ button:hover {
 
 .content__video-card {
   display: flex;
+  width: 394px;
 }
 
 .content__video-card-description-container {
